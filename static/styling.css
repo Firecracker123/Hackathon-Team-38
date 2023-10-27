@@ -10,14 +10,16 @@
 }
 
 #description {
-    width: 100%;
+    max-width: 100%;
     height: 20%;
     border:solid orange 3px;
     background-color: black;
     margin: auto;
-    overflow: auto;
+    overflow: scroll;
     font-size: 25px;
     font-family: Helvetica;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #input_field {
