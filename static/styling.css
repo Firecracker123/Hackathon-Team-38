@@ -15,7 +15,7 @@
     border:solid orange 3px;
     background-color: black;
     margin: auto;
-    overflow: scroll;
+    overflow: auto;
     font-size: 25px;
     font-family: Helvetica;
 }
