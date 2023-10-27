@@ -16,6 +16,7 @@
     background-color: black;
     margin: auto;
     overflow: auto;
+    overflow-x: hidden;
     font-size: 25px;
     font-family: Helvetica;
     padding-left: 20px;
@@ -43,4 +44,17 @@ body {
     background-color: black;
     padding-top: 0px;
     padding-bottom: 0px;
+}
+
+
+p.description_test {
+    padding-bottom: 5px
+}
+
+p.greater_than {
+    display:inline; 
+    position: absolute; 
+    font-size: 20px; 
+    left:120px;
+    font-family: Lucida Console;
 }
