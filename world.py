@@ -44,7 +44,7 @@ data = {
             "exits": {
                 "outside": "swamp_main"
             },
-            "img_url":"static/images/witchy_house.jpeg",
+            "img_url":"static/images/witchy_room.jpeg",
             "objects": {"herbs":True , "potion":True , "wand":True , "mirror":True , "cauldron":True
             },
         },
@@ -66,7 +66,7 @@ data = {
             "description": "In the dark haunted cellar, an eerie gloom shrouded all, but a lone golden necklace emitted a hauntingly beautiful glow, its brilliance cutting through the shadows.",
             "objects": { "necklace":True , "cloak":True
             },
-            "img_url": "static/images/church.jpeg",
+            "img_url": "static/images/celler.jpeg",
             "exits": {"up": "church"},
         },
         "cave": {
