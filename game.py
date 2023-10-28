@@ -1,4 +1,5 @@
 import world
+import copy
 
 
 def exits():
@@ -103,6 +104,7 @@ def drop(obj):
     else:
         world.data["output"] = "You don't have this item in your inventory"
 
+
 def kill(entity):
     current_room = world.data["current_state"]["room"]
     inventory = world.data["current_state"]["inventory"]
@@ -110,11 +112,12 @@ def kill(entity):
 
     if entity == "witch":
         if entity in room["objects"]:
-            pass # check for bow and arrow (or lake)
+            pass  # check for bow and arrow (or lake)
         else:
             world.data["output"] = f"The %s is not here..." % entity
     else:
         world.data["output"] = f"I cannot kill %s!" % entity
+
 
 def help():
     output = "Actions: || "
@@ -129,6 +132,7 @@ def help():
     output += "quit"
 
     world.data["output"] = output
+
 
 def go(direction):
     room = world.data["current_state"]["room"]
@@ -194,6 +198,7 @@ def do(act, something=None):
 
 def user_input(prompt):
     if prompt == "start":
+        world.data = copy.deepcopy(world.data_copy)
         world.data["current_state"]["playing"] = True
         go("north")
 
@@ -201,9 +206,10 @@ def user_input(prompt):
         pass
 
     elif prompt == "quit":
+        world.data = copy.deepcopy(world.data_copy)
         desc = "Thank you for playing!"
         world.data["current_state"]["playing"] = False
-        world.data["output"] = "Ty for playing"
+        world.data["output"] = "Ty for playing! Type 'start' to restart."
     else:
         prompt = prompt.split()
         if len(prompt) == 1:
