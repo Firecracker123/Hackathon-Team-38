@@ -139,6 +139,7 @@ def go(direction):
         if room == "bridge" and direction == "north":
             if "sigil" in items_in_room:
                 world.data["current_state"]["room"] = directions[direction]
+                look()
             else:
                 world.data["output"] = "You cannot cross yet."
         elif direction != "treehouse":
