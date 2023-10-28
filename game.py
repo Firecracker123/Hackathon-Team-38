@@ -103,6 +103,7 @@ def drop(obj):
     else:
         world.data["output"] = "You don't have this item in your inventory"
 
+
 def kill(entity):
     current_room = world.data["current_state"]["room"]
     inventory = world.data["current_state"]["inventory"]
@@ -110,11 +111,12 @@ def kill(entity):
 
     if entity == "witch":
         if entity in room["objects"]:
-            pass # check for bow and arrow (or lake)
+            pass  # check for bow and arrow (or lake)
         else:
             world.data["output"] = f"The %s is not here..." % entity
     else:
         world.data["output"] = f"I cannot kill %s!" % entity
+
 
 def help():
     output = "Actions: || "
@@ -129,6 +131,7 @@ def help():
     output += "quit"
 
     world.data["output"] = output
+
 
 def go(direction):
     room = world.data["current_state"]["room"]
