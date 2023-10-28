@@ -98,7 +98,8 @@ def drop(obj):
         inv[obj] = False
         items_in_room[obj] = True
         world.data["output"] = "You drop the {obj}".format(obj=obj)
-        take("sigil")
+        if obj == "necklace" and "sigil" in items_in_room and items_in_room["sigil"]:
+            take("sigil")
     else:
         world.data["output"] = "You don't have this item in your inventory"
 
