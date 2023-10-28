@@ -27,6 +27,9 @@ data = {
         "axe": {"description": "ÐU NE WILLCUMEN GEONDGAN."},
         "note": {"description": "You may cross only once the sigil is bound to you."},
         "ghost": {"description": "You may cross only once the sigil is bound to you."},
+        "bow": {"description": "A magical bow, adorned with ethereal glow, rests solemnly atop a hallowed grave. Its presence pays tribute to a departed soul, a poignant reminder of the enchanted legacy left behind, even in the realm beyond."},
+        "arrow": {"description": "A silver arrow, gleaming with a pristine, moonlit sheen, embodies precision and power. Crafted for the purpose of vanquishing monsters, it promises a swift and decisive end to even the most formidable of foes."},
+        "candy": {"description": "Just a bag of candy..."},
         "pumpkin": {"description": "A jack-o'-lantern, carved with a sinister grin, harbors a spectral secret within. Its flickering candlelight dances with the restless soul trapped within, casting an eerie glow that speaks of unending Halloween nights."},
         "candle": {"description": "A magical candle, shimmering softly, radiates an aura of enchantment. Its wax, infused with mystic energies, dances with ethereal light, promising to ignite the secrets of the arcane with each flickering flame."},
         "sigil": {"description": "A sigil of liberation, etched in shimmering silver, emanates an aura of arcane potential. Its compact design is a tangle of interwoven lines and cryptic symbols, a key to unbind enchantments and break the chains of magic."},
@@ -41,7 +44,7 @@ data = {
             "exits": {
                 "outside": "swamp_main"
             },
-            "img_url":"static/images/witchy_room.jpeg",
+            "img_url":"static/images/witchy_house.jpeg",
             "objects": {"herbs":True , "potion":True , "wand":True , "mirror":True , "cauldron":True
             },
         },
@@ -85,7 +88,7 @@ data = {
             "objects": {
                         },
             "img_url": "static/images/cockroach_man.jpeg",
-            "exits": {"west": "path1" , "east":"path2", "south":"bridge"},
+            "exits": {"west": "statue" , "east":"treehouse", "south":"bridge"},
         },
         "cemetery": {
             "description": "In the heart of the enchanted forest, a mighty, ethereal cemetery stands as a testament to bygone wizards and mystical beings. Ancient tombstones, adorned with symbols of power, stretch into the misty horizon. A benevolent ghost, wreathed in soft, haunting light, drifts gracefully among the hallowed grounds, guarding the secrets of those who rest in eternal slumber.",
@@ -94,26 +97,26 @@ data = {
             "img_url": "static/images/cemetery.jpeg",
             "exits": {"west": "path1", "east": "path2", "south": "bridge"},
         },
-        "library": {
-            "description": "An ancient mystical library, hidden from the world's gaze, stands cloaked in shadows and heavy with the weight of untold secrets. Its shelves, laden with tomes and grimoires bound in forgotten languages, beckon the daring seeker. Yet, the air is thick with an aura of darkness, as if the very walls whisper the price one must pay to unearth the hidden knowledge within.",
+        "forest": {
+            "description": "Within the heart of the mystical forest, a single towering tree stands, its gnarled roots delving deep into enchanted soil. The malevolent witch, her dark essence forever bound, is imprisoned within its ancient, twisted trunk. The tree exudes an eerie aura, guarding the wicked secrets of her entrapment for all eternity.",
             "objects": {
             },
-            "img_url": "static/images/market.jpeg",
-            "exits": {"west": "path1", "east": "path2", "south": "bridge"},
+            "img_url": "static/images/final_forest.jpeg",
+            "exits": {"east": "cemetery"},
         },
-        "market": {
-            "description": "A market, suspended high in the air, hangs gracefully atop slender pillars, defying gravity with an ethereal elegance. Vendors' stalls, rich with colorful wares, sway gently in the breeze, while visitors traverse narrow walkways with a sense of awe and wonder.",
-            "objects": {
+        "statue": {
+            "description": "Beneath the luminous embrace of the shining moon, a mystical statue stands, bathed in celestial light. Its form is an exquisite fusion of ethereal grace and otherworldly beauty, an enigmatic sentinel that seems to hold the secrets of the night within its stone heart.",
+            "objects": { "candy":True, "pumpkin": True
             },
-            "img_url": "static/images/market.jpeg",
-            "exits": {"west": "path1", "east": "path2", "south": "bridge"},
+            "img_url": "static/images/statue.jpeg",
+            "exits": {"east": "cemetery"},
         },
         "treehouse": {
             "description": "An abandoned treehouse, nature reclaims a childhood dream. In the shivering silence, I felt a searing surge within, my essence twisting into something monstrous. Crimson tendrils snaked across my skin, horns sprouted from my temples, and eyes glowed with infernal fervor. Terror gripped my heart as I began a slow descent into the very earth, my existence melding with the shadows below. In that terrifying moment, I realized I had become a demon, forever bound to the depths, my humanity fading like a distant, vanishing whisper.",
             "objects": {
             },
             "img_url": "static/images/treehouse.jpeg",
-            "exits": {"west": "path1", "east": "path2", "south": "bridge"},
+            "exits": {},
         },
         "main_menu": {
             "description": "Type in START to begin your adventure",
