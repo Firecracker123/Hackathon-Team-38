@@ -59,7 +59,7 @@ data = {
             "exits": {"south": "witch_house", "north": "bridge" , "west" : "cave" , "east" : "church"},
         },
         "church": {
-            "description": "Within the dark, abandoned church, decaying pews crumble under ghostly shadows, and a spectral chill lingers, whispering tales of the past.",
+            "description": "Within the dark, abandoned church, decaying pews crumble under ghostly shadows, and a spectral chill lingers, whispering tales of the past. As I stand within this sacred sanctuary, bathed in the divine light of the church, I can feel a creeping darkness. It's as if a shadow has taken root within my soul, a malevolent force that slowly but surely unravels my humanity. This holy radiance, once comforting, now seems to intensify the infernal transformation that has taken hold. I am becoming something... something I can hardly bear to acknowledge.",
             "objects": {
             },
             "img_url": "static/images/church.jpeg",
@@ -109,7 +109,7 @@ data = {
             "exits": {"east": "cemetery"},
         },
         "statue": {
-            "description": "Beneath the luminous embrace of the shining moon, a mystical statue stands, bathed in celestial light. Its form is an exquisite fusion of ethereal grace and otherworldly beauty, an enigmatic sentinel that seems to hold the secrets of the night within its stone heart.",
+            "description": "In the presence of the grand and hallowed statue, bathed in the purest light, a sinister realization dawns upon me. The more I stand here, the more I sense the creeping darkness within, an insidious metamorphosis into something I can scarcely comprehend. The holiness of this place, once my refuge, now amplifies the infernal transformation that grips my being. I am becoming... something unholy, something that defies the sanctity of this sacred ground.",
             "objects": { "candy":True, "arrow" : True
             },
             "img_url": "static/images/statue.jpeg",
