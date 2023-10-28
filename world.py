@@ -81,7 +81,7 @@ data = {
             "objects": { "note":True
             },
             "img_url": "static/images/bridge.jpeg",
-            "exits": {"north" : "after_bridge", "south":"swamp"},
+            "exits": {"north" : "after_bridge", "south":"swamp_main"},
         },
         "after_bridge": {
             "description": "<<Salutations, wanderer!>> proclaims the Mystical Cockroach Man with a timeless wisdom. <<Now that you have traversed this realm, you stand at the crossroads of salvation. You may embark upon the short yet perilous western path, or you may opt for the elongated but tranquil eastern journey. The decision, traveler, rests with you, guided by the eternal flow of time.>>",
