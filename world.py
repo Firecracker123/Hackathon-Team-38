@@ -5,7 +5,7 @@ data = {
                       "playing": False  # flag: True until the player quits
                       },
 
-    "output": "Type in START to begin your adventure",
+    "output":"Type in START to begin your adventure",
 
     # these are objects in the world, and their properties
     "objects": {
@@ -23,9 +23,12 @@ data = {
         "torch": {"description": "A charred torch."},
         "necklace": {"description": "The golden magical necklace gleamed with an enchanting radiance, a masterpiece of elegance and mystery."},
         "cloak": {"description": "The dirty but appealing and mysterious cloak bore the marks of countless journeys, its shabby exterior concealing a world of enigmatic charm and adventure within."},
-        "slime" : {"description" : "<<I'm hidden within a place of worship so grand, With jewels and gems, I'm carefully planned. Adorning the neck, in a sacred embrace, Where am I found, in this hallowed place?>> Drop this object at my feet and I shall help you."},
+        "slime": {"description" : "<<I'm hidden within a place of worship so grand, With jewels and gems, I'm carefully planned. Adorning the neck, in a sacred embrace, Where am I found, in this hallowed place?>> Drop this object at my feet and I shall help you."},
         "axe": {"description": "ÐU NE WILLCUMEN GEONDGAN."},
-        "note": {"description": "Release its power to the ground, let nature decide."},
+        "note": {"description": "You may cross only once the sigil is bound to you."},
+        "ghost": {"description": "You may cross only once the sigil is bound to you."},
+        "pumpkin": {"description": "A jack-o'-lantern, carved with a sinister grin, harbors a spectral secret within. Its flickering candlelight dances with the restless soul trapped within, casting an eerie glow that speaks of unending Halloween nights."},
+        "candle": {"description": "A magical candle, shimmering softly, radiates an aura of enchantment. Its wax, infused with mystic energies, dances with ethereal light, promising to ignite the secrets of the arcane with each flickering flame."},
         "sigil": {"description": "A sigil of liberation, etched in shimmering silver, emanates an aura of arcane potential. Its compact design is a tangle of interwoven lines and cryptic symbols, a key to unbind enchantments and break the chains of magic."},
         "sign": {"description": "The wooden handle, darkened by years of sweat and grit, still retains a sturdy resilience, despite the passage of time. This old sharp axe is a testament to the enduring craftsmanship of yesteryears"},
         "lake": {"description": "The magical lake, its pristine waters shimmering with an ethereal glow, denied touch and reflection, holding secrets beyond the grasp of mortal curiosity."}
@@ -38,7 +41,7 @@ data = {
             "exits": {
                 "outside": "swamp_main"
             },
-            "img_url":"static/images/witchy_room.jpeg",
+            "img_url":"static/images/witchy_house.jpeg",
             "objects": {"herbs":True , "potion":True , "wand":True , "mirror":True , "cauldron":True
             },
         },
@@ -75,14 +78,42 @@ data = {
             "objects": { "note":True
             },
             "img_url": "static/images/bridge.jpeg",
-            "exits": {"north" : "after_bridge", "south":"swamp_main"},
+            "exits": {"north" : "after_bridge", "south":"swamp"},
         },
         "after_bridge": {
-            "description": "you have crossed",
+            "description": "<<Salutations, wanderer!>> proclaims the Mystical Cockroach Man with a timeless wisdom. <<Now that you have traversed this realm, you stand at the crossroads of salvation. You may embark upon the short yet perilous western path, or you may opt for the elongated but tranquil eastern journey. The decision, traveler, rests with you, guided by the eternal flow of time.>>",
             "objects": {
                         },
-            "img_url": "static/images/after_bridge.jpeg",
+            "img_url": "static/images/cockroach_man.jpeg",
             "exits": {"west": "path1" , "east":"path2", "south":"bridge"},
+        },
+        "cemetery": {
+            "description": "In the heart of the enchanted forest, a mighty, ethereal cemetery stands as a testament to bygone wizards and mystical beings. Ancient tombstones, adorned with symbols of power, stretch into the misty horizon. A benevolent ghost, wreathed in soft, haunting light, drifts gracefully among the hallowed grounds, guarding the secrets of those who rest in eternal slumber.",
+            "objects": { "ghost":True , "tumbleweed":True , "candle":True
+            },
+            "img_url": "static/images/cemetery.jpeg",
+            "exits": {"west": "path1", "east": "path2", "south": "bridge"},
+        },
+        "library": {
+            "description": "An ancient mystical library, hidden from the world's gaze, stands cloaked in shadows and heavy with the weight of untold secrets. Its shelves, laden with tomes and grimoires bound in forgotten languages, beckon the daring seeker. Yet, the air is thick with an aura of darkness, as if the very walls whisper the price one must pay to unearth the hidden knowledge within.",
+            "objects": {
+            },
+            "img_url": "static/images/market.jpeg",
+            "exits": {"west": "path1", "east": "path2", "south": "bridge"},
+        },
+        "market": {
+            "description": "A market, suspended high in the air, hangs gracefully atop slender pillars, defying gravity with an ethereal elegance. Vendors' stalls, rich with colorful wares, sway gently in the breeze, while visitors traverse narrow walkways with a sense of awe and wonder.",
+            "objects": {
+            },
+            "img_url": "static/images/market.jpeg",
+            "exits": {"west": "path1", "east": "path2", "south": "bridge"},
+        },
+        "treehouse": {
+            "description": "An abandoned treehouse, nature reclaims a childhood dream. In the shivering silence, I felt a searing surge within, my essence twisting into something monstrous. Crimson tendrils snaked across my skin, horns sprouted from my temples, and eyes glowed with infernal fervor. Terror gripped my heart as I began a slow descent into the very earth, my existence melding with the shadows below. In that terrifying moment, I realized I had become a demon, forever bound to the depths, my humanity fading like a distant, vanishing whisper.",
+            "objects": {
+            },
+            "img_url": "static/images/treehouse.jpeg",
+            "exits": {"west": "path1", "east": "path2", "south": "bridge"},
         },
         "main_menu": {
             "description": "Type in START to begin your adventure",
