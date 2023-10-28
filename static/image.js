@@ -23,12 +23,12 @@ function draw() {
 
     current_url = document.getElementById("current_url")
 
-    /*fetch('/imageurl')
+    fetch('/imageurl')
                 .then(response => response.text())
                 .then(data => {
                     console.log(data)
                     current_img.src = data
-                });*/
+                });
 
     ctx.drawImage(current_img, 0, 0, canv.width, canv.height);
     requestAnimationFrame(draw);
