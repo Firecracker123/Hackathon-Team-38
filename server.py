@@ -4,8 +4,16 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello_world():
-    return render_template("mainpage.html")
+def main():
+    return render_template("mainpage.html", image_url="")
+
+@app.route("/game")
+def start():
+    pass
+
+@app.route("/update", methods=["POST"])
+def update():
+    pass
 
 
 if __name__ == "__main__":
