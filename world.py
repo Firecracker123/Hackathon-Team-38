@@ -7,7 +7,7 @@ data = {
                       "playing": False  # flag: True until the player quits
                       },
 
-    "output":"Type in START to begin your adventure",
+    "output":"Type \'START\' to begin your adventure",
 
     # these are objects in the world, and their properties
     "objects": {
