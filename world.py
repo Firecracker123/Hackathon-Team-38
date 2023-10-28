@@ -92,10 +92,10 @@ data = {
         },
         "cemetery": {
             "description": "In the heart of the enchanted forest, a mighty, ethereal cemetery stands as a testament to bygone wizards and mystical beings. Ancient tombstones, adorned with symbols of power, stretch into the misty horizon. A benevolent ghost, wreathed in soft, haunting light, drifts gracefully among the hallowed grounds, guarding the secrets of those who rest in eternal slumber.",
-            "objects": { "ghost":True , "tumbleweed":True , "candle":True
+            "objects": { "ghost":True , "pumpkin":True , "candle":True , "bow":True
             },
             "img_url": "static/images/cemetery.jpeg",
-            "exits": {"west": "path1", "east": "path2", "south": "bridge"},
+            "exits": {"west": "forest"},
         },
         "forest": {
             "description": "Within the heart of the mystical forest, a single towering tree stands, its gnarled roots delving deep into enchanted soil. The malevolent witch, her dark essence forever bound, is imprisoned within its ancient, twisted trunk. The tree exudes an eerie aura, guarding the wicked secrets of her entrapment for all eternity.",
@@ -106,10 +106,10 @@ data = {
         },
         "statue": {
             "description": "Beneath the luminous embrace of the shining moon, a mystical statue stands, bathed in celestial light. Its form is an exquisite fusion of ethereal grace and otherworldly beauty, an enigmatic sentinel that seems to hold the secrets of the night within its stone heart.",
-            "objects": { "candy":True, "pumpkin": True
+            "objects": { "candy":True, "arrow" : True
             },
             "img_url": "static/images/statue.jpeg",
-            "exits": {"east": "cemetery"},
+            "exits": {"north": "cemetery"},
         },
         "treehouse": {
             "description": "An abandoned treehouse, nature reclaims a childhood dream. In the shivering silence, I felt a searing surge within, my essence twisting into something monstrous. Crimson tendrils snaked across my skin, horns sprouted from my temples, and eyes glowed with infernal fervor. Terror gripped my heart as I began a slow descent into the very earth, my existence melding with the shadows below. In that terrifying moment, I realized I had become a demon, forever bound to the depths, my humanity fading like a distant, vanishing whisper.",
