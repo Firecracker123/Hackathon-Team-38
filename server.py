@@ -15,8 +15,7 @@ def start():
 def update():
     print("update()")
     jsdata = request.form['Submit']
-    print(f"JS data: %s" % jsdata)
-    return ""
+    return redirect(url_for('main'))
 
 @app.route("/imageurl")
 def image_url():
