@@ -7,10 +7,6 @@ app = Flask(__name__)
 def main():
     return render_template("mainpage.html", image_url="")
 
-@app.route("/game")
-def start():
-    pass
-
 @app.route("/update", methods=["POST", "GET"])
 def update():
     print("update()")
