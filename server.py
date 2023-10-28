@@ -15,6 +15,9 @@ def start():
 def update():
     pass
 
+@app.route("/imageurl")
+def image_url():
+    return "/static/test_scene.jpeg"
 
 if __name__ == "__main__":
     app.run(debug=True)
