@@ -26,7 +26,7 @@ data = {
         "slime": {"description" : "<<I'm hidden within a place of worship so grand, With jewels and gems, I'm carefully planned. Adorning the neck, in a sacred embrace, Where am I found, in this hallowed place?>> Drop this object at my feet and I shall help you."},
         "axe": {"description": "ÐU NE WILLCUMEN GEONDGAN."},
         "note": {"description": "You may cross only once the sigil is bound to you."},
-        "ghost": {"description": "You may cross only once the sigil is bound to you."},
+        "ghost": {"description": "BOOOOO, Trick or Treat dear traveller! Bring me the candy if you want to know how to slay the evil witch!"},
         "bow": {"description": "A magical bow, adorned with ethereal glow, rests solemnly atop a hallowed grave. Its presence pays tribute to a departed soul, a poignant reminder of the enchanted legacy left behind, even in the realm beyond."},
         "arrow": {"description": "A silver arrow, gleaming with a pristine, moonlit sheen, embodies precision and power. Crafted for the purpose of vanquishing monsters, it promises a swift and decisive end to even the most formidable of foes."},
         "candy": {"description": "Just a bag of candy..."},
