@@ -117,9 +117,16 @@ def kill(entity):
         world.data["output"] = f"I cannot kill %s!" % entity
 
 def help():
-    output = "Actions:\n"
-    output += "go [direction]\n"
-    output += "inventory"
+    output = "Actions: || "
+    output += "exits || "
+    output += "go [direction] || "
+    output += "inventory || "
+    output += "take [object] || "
+    output += "drop [object] || "
+    output += "examine [object] || "
+    output += "look || "
+    output += "talk [entity] || "
+    output += "quit"
 
     world.data["output"] = output
 
@@ -173,6 +180,7 @@ def do(act, something=None):
         "start": start,
         "look": look,
         "talk": talk,
+        "help": help,
     }
     if act in actions:
         if something is None:
