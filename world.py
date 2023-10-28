@@ -41,7 +41,7 @@ data = {
             "exits": {
                 "outside": "swamp_main"
             },
-            "img_url":"static/images/witchy_house.jpeg",
+            "img_url":"static/images/witchy_room.jpeg",
             "objects": {"herbs":True , "potion":True , "wand":True , "mirror":True , "cauldron":True
             },
         },
