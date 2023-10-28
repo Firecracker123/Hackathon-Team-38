@@ -36,7 +36,8 @@ data = {
         "candle": {"description": "A magical candle, shimmering softly, radiates an aura of enchantment. Its wax, infused with mystic energies, dances with ethereal light, promising to ignite the secrets of the arcane with each flickering flame."},
         "sigil": {"description": "A sigil of liberation, etched in shimmering silver, emanates an aura of arcane potential. Its compact design is a tangle of interwoven lines and cryptic symbols, a key to unbind enchantments and break the chains of magic."},
         "sign": {"description": "The wooden handle, darkened by years of sweat and grit, still retains a sturdy resilience, despite the passage of time. This old sharp axe is a testament to the enduring craftsmanship of yesteryears"},
-        "lake": {"description": "The magical lake, its pristine waters shimmering with an ethereal glow, denied touch and reflection, holding secrets beyond the grasp of mortal curiosity."}
+        "lake": {"description": "The magical lake, its pristine waters shimmering with an ethereal glow, denied touch and reflection, holding secrets beyond the grasp of mortal curiosity."},
+        "witch": {"description": "I am the witch!"}
     },
 
     # these are the rooms in the world
@@ -90,7 +91,7 @@ data = {
             "objects": {
                         },
             "img_url": "static/images/cockroach_man.jpeg",
-            "exits": {"west": "statue" , "east":"treehouse", "south":"bridge"},
+            "exits": {"west": "statue" , "east":"hell", "south":"bridge"},
         },
         "cemetery": {
             "description": "In the heart of the enchanted forest, a mighty, ethereal cemetery stands as a testament to bygone wizards and mystical beings. Ancient tombstones, adorned with symbols of power, stretch into the misty horizon. A benevolent ghost, wreathed in soft, haunting light, drifts gracefully among the hallowed grounds, guarding the secrets of those who rest in eternal slumber.",
@@ -102,6 +103,7 @@ data = {
         "forest": {
             "description": "Within the heart of the mystical forest, a single towering tree stands, its gnarled roots delving deep into enchanted soil. The malevolent witch, her dark essence forever bound, is imprisoned within its ancient, twisted trunk. The tree exudes an eerie aura, guarding the wicked secrets of her entrapment for all eternity.",
             "objects": {
+                "witch": True
             },
             "img_url": "static/images/final_forest.jpeg",
             "exits": {"east": "cemetery"},
