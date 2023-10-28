@@ -4,7 +4,7 @@ data = {
     # update this state as the game progresses
     "current_state": {"room": "main_menu",
                       "inventory": { "coins":True,"knife":True,"chains":True,"ring":True},  # the things they carried
-                      "playing": False  # flag: True until the player quits
+                      "playing": False,  # flag: True until the player quits
                       },
 
     "output":"Type in START to begin your adventure",

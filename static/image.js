@@ -16,6 +16,7 @@ fitToContainer(canv);
 const ctx = canv.getContext("2d");
 
 const current_img = new Image();
+const audio = new Audio("/static/soundtrack.mp3")
 
 function draw() {
     // the idea is to read in here the current url value from a
@@ -35,12 +36,3 @@ function draw() {
 }
 
 requestAnimationFrame(draw);
-
-function button_test() {
-    fetch("/update", {
-        method: "Post",
-        body: {
-           name: "Test!"
-        }
-    })
-}

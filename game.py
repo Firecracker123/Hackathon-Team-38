@@ -217,6 +217,8 @@ def do(act, something=None):
 
 
 def user_input(prompt):
+    room_name = world.data["current_state"]["room"]
+    room = world.data["rooms"][room_name]
     if prompt == "start":
         world.data = copy.deepcopy(world.data_copy)
         world.data["current_state"]["playing"] = True
@@ -224,6 +226,10 @@ def user_input(prompt):
 
     elif world.data["current_state"]["playing"] == False:
         pass
+
+    elif room_name == "hell":
+        world.data["output"] = """It's game over.. 
+                                    you can only restart using 'start' now."""
 
     elif prompt == "quit":
         world.data = copy.deepcopy(world.data_copy)
