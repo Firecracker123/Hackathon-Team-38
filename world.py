@@ -113,8 +113,8 @@ data = {
             "img_url": "static/images/statue.jpeg",
             "exits": {"north": "cemetery"},
         },
-        "treehouse": {
-            "description": "An abandoned treehouse, nature reclaims a childhood dream. In the shivering silence, I felt a searing surge within, my essence twisting into something monstrous. Crimson tendrils snaked across my skin, horns sprouted from my temples, and eyes glowed with infernal fervor. Terror gripped my heart as I began a slow descent into the very earth, my existence melding with the shadows below. In that terrifying moment, I realized I had become a demon, forever bound to the depths, my humanity fading like a distant, vanishing whisper.",
+        "hell": {
+            "description": "YOU FOOL! YOU HAVE PICKED THE SHORT PATH...YOUR FATE IS ETERNAL DAMNATION!!In the shivering silence, I felt a searing surge within, my essence twisting into something monstrous. Crimson tendrils snaked across my skin, horns sprouted from my temples, and eyes glowed with infernal fervor. Terror gripped my heart as I began a slow descent into the very earth, my existence melding with the shadows below. In that terrifying moment, I realized I had become a demon, forever bound to the depths, my humanity fading like a distant, vanishing whisper. In the realm of eternal torment, Hell's relentless embrace gradually consumes a writhing demon. The abyssal maw, a seething void of suffering, hungrily devours the creature's malevolent essence, leaving naught but a fading echo of its wickedness in its relentless descent into oblivion.",
             "objects": {
             },
             "img_url": "static/images/treehouse.jpeg",
