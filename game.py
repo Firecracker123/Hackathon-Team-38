@@ -106,6 +106,9 @@ def drop(obj):
     else:
         world.data["output"] = "You don't have this item in your inventory"
 
+def ininv(object):
+    inventory = world.data["current_state"]["inventory"]
+    return object in inventory and inventory[object]
 
 def kill(entity):
     current_room = world.data["current_state"]["room"]
@@ -114,7 +117,21 @@ def kill(entity):
 
     if entity == "witch":
         if entity in room["objects"]:
-            pass  # check for bow and arrow (or lake)
+            if ininv("lake"): 
+                 world.data["output"] = """You've vanquished the malevolent witch and 
+                                        brought peace to the land. 
+                                        As the murky waters of the cursed lake swallow her, 
+                                        the world is finally free from her wicked grasp. You win!"""
+            elif (ininv("bow") and ininv("arrow")):
+                world.data["output"] = """You accurately land an arrow on the witch's head. 
+                                        The witch slowly collapses to the ground. You win!"""
+            elif ininv("bow"):
+                 world.data["output"] = "I need to find an arrow to use with my bow..."
+            elif ininv("arrow"):
+                 world.data["output"] = "I need to find a bow to use with my arrow..."
+            else:
+                world.data["output"] = """I don't have a powerful enough weapon for this... 
+                                        maybe I should go back and find one."""
         else:
             world.data["output"] = f"The %s is not here..." % entity
     else:
@@ -188,6 +205,7 @@ def do(act, something=None):
         "look": look,
         "talk": talk,
         "help": help,
+        "kill": kill,
     }
     if act in actions:
         if something is None:
