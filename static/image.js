@@ -17,6 +17,7 @@ const ctx = canv.getContext("2d");
 
 const current_img = new Image();
 const audio = new Audio("/static/soundtrack.mp3")
+audio.play()
 
 function draw() {
     // the idea is to read in here the current url value from a
@@ -30,6 +31,14 @@ function draw() {
                     console.log(data)
                     current_img.src = data
                 });
+
+    // this breaks the image for some reason
+    /*if (current_img.src.findIndex("main_menu") != -1) {
+        audio.paused = true
+    }
+    else {
+        audio.paused = false
+    }*/
 
     ctx.drawImage(current_img, 0, 0, canv.width, canv.height);
     requestAnimationFrame(draw);
