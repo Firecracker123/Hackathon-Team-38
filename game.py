@@ -114,10 +114,14 @@ def go(direction):
                 world.data["current_state"]["room"] = directions[direction]
             else:
                 world.data["output"] = "You cannot cross yet."
-        else:
+        elif direction != "treehouse":
             world.data["current_state"]["room"] = directions[direction]
             look()
             # output += "You are now in the {place}.".format(place=directions[direction]))
+        else:
+            world.data["current_state"]["room"] = directions[direction]
+            look()
+            quit()
     else:
         world.data["output"] = "You cannot go there!"
 
