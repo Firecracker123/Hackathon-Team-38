@@ -1,1 +1,0 @@
-document.getElementById('description').scrollTo(0, 1000000)
