@@ -99,6 +99,8 @@ def drop(obj):
         inv[obj] = False
         items_in_room[obj] = True
         world.data["output"] = "You drop the {obj}".format(obj=obj)
+        if room=="cemetery" and "ghost" in items_in_room and items_in_room["ghost"]:
+            print("Thank you, human! You may slay the evil witch by using a bow and a silver arrow!")
         if obj == "necklace" and "sigil" in items_in_room and items_in_room["sigil"]:
             take("sigil")
     else:
