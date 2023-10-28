@@ -4,7 +4,9 @@
     <head><link rel="stylesheet" href="{{ url_for('static', filename='styling.css') }}"> <link href="https://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet"></head>
 
     <body>
-        <div id = 'image_body'></div>
+        <div id = 'image_body'>
+            <canvas id="canvas"></canvas> <!-- this is where all images will be displayed-->
+        </div>
 
 
         <div id="description_and_input">
@@ -17,7 +19,8 @@
                 </div>
             </div>
         </div>
-
+        
+        <script src="/static/image.js"></script>
     </body>
 
 </html>
