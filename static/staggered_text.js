@@ -10,6 +10,6 @@ function staggeredTextOutput(text){
     for (let i = 0; i < text.length; i++){
         setTimeout(() =>{
         text_elt.innerHTML += text[i];
-        }, i * 100)
+        }, i * 20)
     }
 }

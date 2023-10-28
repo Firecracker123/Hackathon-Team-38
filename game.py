@@ -5,7 +5,7 @@ def exits():
     for direction in world.data["rooms"][current_room]["exits"].keys():
         s += direction
         s += " "
-    print("You can go: " + s)
+    world.data["output"] = "You can go: " + s
 
 
 def inventory():
@@ -16,31 +16,32 @@ def inventory():
             s += item
             s += " "
     if (s == ""):
-        print("You are not carrying anything.")
+        world.data["output"] = "You are not carrying anything."
     else:
-        print("You are carrying: " + s)
-
+        world.data["output"] = "You are carrying: " + s
 
 def look():
+    output = ""
     room = world.data["current_state"]["room"]
-    print(world.data["rooms"][room]["description"])
+    output += world.data["rooms"][room]["description"] + " "
     objects_around = world.data["rooms"][room]["objects"]
     l = []
     for obj in objects_around:
         if objects_around[obj]:
             l.append(obj)
     if len(l) == 0:
-        print("There is nothing around here.")
+        output += "There is nothing around here."
     elif len(l) == 1:
-        print("There is a {obj} here.".format(obj=l[0]))
+        output += "There is a {obj} here.".format(obj=l[0])
     else:
-        print("There is a", end=" ")
+        output += "There is a "
         for pos, elt in enumerate(l):
             if pos != len(l) - 1:
-                print("{thing} and a".format(thing=elt), end=" ")
+                output += "{thing} and a ".format(thing=elt)
             else:
-                print("{thing} here.".format(thing=elt))
+                output += "{thing} here.".format(thing=elt)
 
+    world.data["output"] = output
 
 def examine(obj):
     inv = world.data["current_state"]["inventory"]
@@ -48,11 +49,11 @@ def examine(obj):
     items_in_room = world.data["rooms"][room]["objects"]
 
     if obj in inv and inv[obj]:
-        print(world.data["objects"][obj]["description"])
+        world.data["output"] = world.data["objects"][obj]["description"]
     elif obj in items_in_room and items_in_room[obj]:
-        print(world.data["objects"][obj]["description"])
+        world.data["output"] = world.data["objects"][obj]["description"]
     else:
-        print("There is no such thing around")
+        world.data["output"] = "There is no such thing around"
 
 
 def take(obj):
@@ -65,19 +66,19 @@ def take(obj):
             if "necklace" in items_in_room and items_in_room[obj]:
                 items_in_room[obj] = False
                 inv[obj] = True
-                print("You take the {obj}!".format(obj=obj))
+                world.data["output"] = "You take the {obj}!".format(obj=obj)
             else:
-                print("You cannot take the sigil yet. Solve the riddle first.")
+                world.data["output"] = "You cannot take the sigil yet. Solve the riddle first."
         elif obj != "mirror":
             items_in_room[obj] = False
             inv[obj] = True
-            print("You take the {obj}!".format(obj=obj))
+            world.data["output"] = "You take the {obj}!".format(obj=obj)
             if(obj == "necklace"):
-                print("Maybe I should bring this to the slime...")
+                world.data["output"] = "Maybe I should bring this to the slime..."
         else:
-            print("You cannot take this object. Its presence makes you feel uneasy.")
+            world.data["output"] = "You cannot take this object. Its presence makes you feel uneasy."
     else:
-        print("I don't see a {obj} here.".format(obj=obj))
+        world.data["output"] = "I don't see a {obj} here.".format(obj=obj)
 
 
 def drop(obj):
@@ -88,10 +89,10 @@ def drop(obj):
     if obj in inv and inv[obj]:
         inv[obj] = False
         items_in_room[obj] = True
-        print("You drop the {obj}".format(obj=obj))
+        world.data["output"] = "You drop the {obj}".format(obj=obj)
         take("sigil")
     else:
-        print("You don't have this item in your inventory")
+        world.data["output"] = "You don't have this item in your inventory"
 
 
 def go(direction):
@@ -104,13 +105,13 @@ def go(direction):
             if "sigil" in items_in_room:
                 world.data["current_state"]["room"] = directions[direction]
             else:
-                print("You cannot cross yet.")
+               world.data["output"] = "You cannot cross yet."
         else:
             world.data["current_state"]["room"] = directions[direction]
             look()
-            # print("You are now in the {place}.".format(place=directions[direction]))
+            # output += "You are now in the {place}.".format(place=directions[direction]))
     else:
-        print("You cannot go there!")
+        world.data["output"] = "You cannot go there!"
 
 def start():
     world.data["current_state"]["playing"]=True
@@ -131,33 +132,33 @@ def do(act, something=None):
         else:
             return actions[act](something)
     else:
-        print("I cannot do that.")
-def game():
-    prompt=input()
-    prompt=prompt.lower()
-    while(True):
-        if prompt == "start":
-            world.data["current_state"]["playing"]=True
-            go("north")
+        world.data["output"] = "I cannot do that."
+# def game():
+#     prompt=input()
+#     prompt=prompt.lower()
+#     while(True):
+#         if prompt == "start":
+#             world.data["current_state"]["playing"]=True
+#             go("north")
 
-        elif world.data["current_state"]["playing"] == False:
-            pass
+#         elif world.data["current_state"]["playing"] == False:
+#             pass
 
-        elif prompt=="quit":
-            desc="Thank you for playing!"
-            world.data["current_state"]["playing"]=False
-            print("Ty for playing")
-            break
-        else:
-            prompt = prompt.split()
-            if len(prompt) == 1:
-                do(prompt[0])
-            elif len(prompt) == 2:
-                do(prompt[0], prompt[1])
-            else:
-                print("I cannot take such long commands unfortunately...")
-        prompt=input()
-        prompt=prompt.lower()
+#         elif prompt=="quit":
+#             desc="Thank you for playing!"
+#             world.data["current_state"]["playing"]=False
+#             print("Ty for playing")
+#             break
+#         else:
+#             prompt = prompt.split()
+#             if len(prompt) == 1:
+#                 do(prompt[0])
+#             elif len(prompt) == 2:
+#                 do(prompt[0], prompt[1])
+#             else:
+#                 print("I cannot take such long commands unfortunately...")
+#         prompt=input()
+#         prompt=prompt.lower()
         #game()
 
 def user_input(prompt):
@@ -171,7 +172,7 @@ def user_input(prompt):
     elif prompt=="quit":
         desc="Thank you for playing!"
         world.data["current_state"]["playing"]=False
-        print("Ty for playing")
+        world.data["output"] = "Ty for playing"
     else:
         prompt = prompt.split()
         if len(prompt) == 1:
@@ -179,4 +180,4 @@ def user_input(prompt):
         elif len(prompt) == 2:
             do(prompt[0], prompt[1])
         else:
-            print("I cannot take such long commands unfortunately...")
+            world.data["output"] = "I cannot take such long commands unfortunately..."

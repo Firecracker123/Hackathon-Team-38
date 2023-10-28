@@ -28,8 +28,9 @@ def image_url():
 
 @app.route("/description")
 def description():
-    room_name = game.world.data["current_state"]["room"]
-    return game.world.data["rooms"][room_name]["description"]
+    #room_name = game.world.data["current_state"]["room"]
+    #return game.world.data["rooms"][room_name]["description"]
+    return game.world.data["output"]
 
 if __name__ == "__main__":
     app.run(debug=True)

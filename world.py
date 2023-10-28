@@ -5,6 +5,8 @@ data = {
                       "playing": False  # flag: True until the player quits
                       },
 
+    "output": "Type in START to begin your adventure",
+
     # these are objects in the world, and their properties
     "objects": {
         "coins": {"description": "I discovered a handful of rusty old coins in my pocket, their once-shiny surfaces now tarnished with time and weathered by countless hands."},
