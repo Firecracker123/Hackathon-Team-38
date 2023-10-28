@@ -51,8 +51,8 @@ p.greater_than {
     font-size: 20px; 
     left:10px;
     font-family: Lucida Console;
-    bottom: 5px;
-
+    bottom: 2px;
+    font-family: pixel-font;
 }
 
 
