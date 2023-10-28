@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
@@ -11,9 +11,12 @@ def main():
 def start():
     pass
 
-@app.route("/update", methods=["POST"])
+@app.route("/update", methods=["POST", "GET"])
 def update():
-    pass
+    print("update()")
+    jsdata = request.form['Submit']
+    print(f"JS data: %s" % jsdata)
+    return ""
 
 @app.route("/imageurl")
 def image_url():
