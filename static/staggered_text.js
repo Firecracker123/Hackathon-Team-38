@@ -1,4 +1,8 @@
-staggeredTextOutput('Type in \'start\' to play')
+fetch('/description')
+    .then(response => response.text())
+    .then(data => {
+        staggeredTextOutput(data)
+})
 
 function staggeredTextOutput(text){
     var text_elt = document.getElementById('description_text')

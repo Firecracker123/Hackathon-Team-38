@@ -25,5 +25,11 @@ def image_url():
     room_name = game.world.data["current_state"]["room"]
     return game.world.data["rooms"][room_name]["img_url"]
     #return "static/images/main_menu.jpeg"
+
+@app.route("/description")
+def description():
+    room_name = game.world.data["current_state"]["room"]
+    return game.world.data["rooms"][room_name]["description"]
+
 if __name__ == "__main__":
     app.run(debug=True)
