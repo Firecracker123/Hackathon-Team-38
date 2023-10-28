@@ -11,22 +11,18 @@ function fitToContainer(canvas) {
     canvas.width  = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 }
-
 fitToContainer(canv);
 
 const ctx = canv.getContext("2d");
 
-const current_img = new Image;
-
-current_img.src = "/static/test_scene.jpeg";
+const current_img = new Image();
 
 function draw() {
     // the idea is to read in here the current url value from a
     // hidden HTML element which will be modified by the game logic in python
-    // so we would have something this:
-    //
-    // current_url = document.getElementById("current_url")
-    // current_img.src = current_url.innerHTML
+
+    current_url = document.getElementById("current_url")
+    current_img.src = current_url.innerHTML
 
     ctx.drawImage(current_img, 0, 0, canv.width, canv.height);
 
