@@ -1,3 +1,5 @@
+import copy
+
 data = {
     # update this state as the game progresses
     "current_state": {"room": "main_menu",
@@ -128,3 +130,5 @@ data = {
     },
 
 }
+
+data_copy = copy.deepcopy(data)

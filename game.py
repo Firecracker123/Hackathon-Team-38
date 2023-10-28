@@ -1,4 +1,5 @@
 import world
+import copy
 
 
 def exits():
@@ -194,6 +195,7 @@ def do(act, something=None):
 
 def user_input(prompt):
     if prompt == "start":
+        world.data = copy.deepcopy(world.data_copy)
         world.data["current_state"]["playing"] = True
         go("north")
 
@@ -201,9 +203,10 @@ def user_input(prompt):
         pass
 
     elif prompt == "quit":
+        world.data = copy.deepcopy(world.data_copy)
         desc = "Thank you for playing!"
         world.data["current_state"]["playing"] = False
-        world.data["output"] = "Ty for playing"
+        world.data["output"] = "Ty for playing! Type 'start' to restart."
     else:
         prompt = prompt.split()
         if len(prompt) == 1:
