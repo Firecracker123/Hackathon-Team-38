@@ -113,10 +113,10 @@ def go(direction):
         print("You cannot go there!")
 
 def start():
-    world.data.data["current_state"]["playing"]=True
+    world.data["current_state"]["playing"]=True
 
 def quit():
-    world.data.data["current_state"]["playing"]=False
+    world.data["current_state"]["playing"]=False
 
 
 def do(act, something=None):
@@ -133,20 +133,19 @@ def do(act, something=None):
     else:
         print("I cannot do that.")
 def game():
-    playing = True
     prompt=input()
     prompt=prompt.lower()
-    while(playing):
+    while(True):
         if prompt == "start":
             world.data["current_state"]["playing"]=True
-            playing = True
             go("north")
 
+        elif world.data["current_state"]["playing"] == False:
+            pass
 
         elif prompt=="quit":
             desc="Thank you for playing!"
             world.data["current_state"]["playing"]=False
-            playing=False
             print("Ty for playing")
             break
         else:
@@ -159,4 +158,25 @@ def game():
                 print("I cannot take such long commands unfortunately...")
         prompt=input()
         prompt=prompt.lower()
-game()
+        #game()
+
+def user_input(prompt):
+    if prompt == "start":
+        world.data["current_state"]["playing"]=True
+        go("north")
+
+    elif world.data["current_state"]["playing"] == False:
+        pass
+
+    elif prompt=="quit":
+        desc="Thank you for playing!"
+        world.data["current_state"]["playing"]=False
+        print("Ty for playing")
+    else:
+        prompt = prompt.split()
+        if len(prompt) == 1:
+            do(prompt[0])
+        elif len(prompt) == 2:
+            do(prompt[0], prompt[1])
+        else:
+            print("I cannot take such long commands unfortunately...")

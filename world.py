@@ -36,7 +36,7 @@ data = {
             "exits": {
                 "outside": "swamp_main"
             },
-            "img_url":"static/images/witchy_house.jpeg",
+            "img_url":"static/images/witchy_room.jpeg",
             "objects": {"herbs":True , "potion":True , "wand":True , "mirror":True , "cauldron":True
             },
         },
@@ -73,7 +73,7 @@ data = {
             "objects": { "note":True
             },
             "img_url": "static/images/bridge.jpeg",
-            "exits": {"north" : "after_bridge", "south":"swamp"},
+            "exits": {"north" : "after_bridge", "south":"swamp_main"},
         },
         "after_bridge": {
             "description": "you have crossed",
