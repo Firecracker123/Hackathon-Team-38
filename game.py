@@ -248,7 +248,6 @@ def do(act, something=None):
             world.data["output"] = f"You must specify an object to %s." % act
     else:
         world.data["output"] = f"I don't know how to %s." % act
-        #world.data["output"] = "I cannot do that."
 
 
 def user_input(prompt):
