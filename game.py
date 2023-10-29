@@ -62,7 +62,7 @@ def examine(obj):
     elif obj in items_in_room and items_in_room[obj]:
         world.data["output"] = world.data["objects"][obj]["description"]
     else:
-        world.data["output"] = "There is no such thing around"
+        world.data["output"] = "There is no such thing around."
 
 
 def take(obj):
@@ -110,13 +110,18 @@ def drop(obj):
     if obj in inv and inv[obj]:
         inv[obj] = False
         items_in_room[obj] = True
-        world.data["output"] = "You drop the {obj}".format(obj=obj)
-        if room=="cemetery" and "ghost" in items_in_room and items_in_room["ghost"]:
-            print("Thank you, human! You may slay the evil witch by using a bow and a silver arrow!")
+        world.data["output"] = "You drop the {obj}.".format(obj=obj)
+        if room=="cemetery" and "ghost" in items_in_room and items_in_room["ghost"] and obj=="candy":
+            world.data["output"] += """ 
+                                    \"Thank you, human! 
+                                    You may slay the evil witch by using a bow and a silver arrow!\""""
         if obj == "necklace" and "sigil" in items_in_room and items_in_room["sigil"]:
             take("sigil")
+        if obj == "lake" and "witch" in items_in_room and items_in_room["witch"]:
+            world.data["output"] += """ 
+""" + kill("witch")
     else:
-        world.data["output"] = "You don't have this item in your inventory"
+        world.data["output"] = "You don't have this item in your inventory."
 
 def ininv(object):
     inventory = world.data["current_state"]["inventory"]
@@ -133,14 +138,18 @@ def kill(entity):
 
     if entity == "witch":
         if entity in room["objects"]:
-            if ininv("lake"): 
-                 world.data["output"] = """You've vanquished the malevolent witch and 
-                                        brought peace to the land. 
-                                        As the murky waters of the cursed lake swallow her, 
-                                        the world is finally free from her wicked grasp. You win!"""
+            if ininv("lake") or "lake" in world.data["rooms"][current_room]["objects"]:
+                 world.data["output"] = """ 
+                                        You feel the immense magical power of the lake flowing through you... 
+                                        As the murky waters of the cursed lake swallow the witch, 
+                                        the world is finally free from her wicked grasp. 
+                                        You've vanquished the malevolent witch 
+                                        and brought peace to the land. 
+                                        You win!"""
             elif (ininv("bow") and ininv("arrow")):
                 world.data["output"] = """You accurately land an arrow on the witch's head. 
-                                        The witch slowly collapses to the ground. You win!"""
+                                        The witch slowly collapses to the ground. 
+                                        You win!"""
             elif ininv("bow"):
                  world.data["output"] = "I need to find an arrow to use with my bow..."
             elif ininv("arrow"):
@@ -152,6 +161,7 @@ def kill(entity):
             world.data["output"] = f"The %s is not here..." % entity
     else:
         world.data["output"] = f"I cannot kill %s!" % entity
+    return world.data["output"]
 
 
 def help():
@@ -195,7 +205,8 @@ def go(direction):
             look()
             quit()
     else:
-        world.data["output"] = "You cannot go there!   Use 'exits' to view exits."
+        world.data["output"] = """You cannot go there! 
+                             Use 'exits' to view exits."""
 
 
 def start():
@@ -272,7 +283,9 @@ def user_input(prompt):
         world.data["output"] = "Ty for playing! Type 'start' to restart."
     else:
         prompt = prompt.split()
-        if len(prompt) == 1:
+        if len(prompt) == 0:
+            world.data["output"] = "...What?"
+        elif len(prompt) == 1:
             do(prompt[0])
         elif len(prompt) == 2:
             do(prompt[0], prompt[1])
