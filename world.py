@@ -35,7 +35,7 @@ data = {
         "pumpkin": {"description": "A jack-o'-lantern, carved with a sinister grin, harbors a spectral secret within. Its flickering candlelight dances with the restless soul trapped within, casting an eerie glow that speaks of unending Halloween nights."},
         "candle": {"description": "A magical candle, shimmering softly, radiates an aura of enchantment. Its wax, infused with mystic energies, dances with ethereal light, promising to ignite the secrets of the arcane with each flickering flame."},
         "sigil": {"description": "A sigil of liberation, etched in shimmering silver, emanates an aura of arcane potential. Its compact design is a tangle of interwoven lines and cryptic symbols, a key to unbind enchantments and break the chains of magic."},
-        "sign": {"description": "The wooden handle, darkened by years of sweat and grit, still retains a sturdy resilience, despite the passage of time. This old sharp axe is a testament to the enduring craftsmanship of yesteryears"},
+        "sign": {"description": "NORTH => <<The path to Salvation>>"},
         "lake": {"description": "The magical lake, its pristine waters shimmering with an ethereal glow, denied touch and reflection, holding secrets beyond the grasp of mortal curiosity."},
         "witch": {"description": "I am the witch!"}
     },
@@ -98,7 +98,7 @@ data = {
             "objects": { "ghost":True , "pumpkin":True , "candle":True , "bow":True
             },
             "img_url": "static/images/cemetery.jpeg",
-            "exits": {"west": "forest"},
+            "exits": {"west": "forest" , "south" : "statue"},
         },
         "forest": {
             "description": "Within the heart of the mystical forest, a single towering tree stands, its gnarled roots delving deep into enchanted soil. The malevolent witch, her dark essence forever bound, is imprisoned within its ancient, twisted trunk. The tree exudes an eerie aura, guarding the wicked secrets of her entrapment for all eternity.",
