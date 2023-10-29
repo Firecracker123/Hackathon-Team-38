@@ -53,6 +53,10 @@ def examine(obj):
     room = world.data["current_state"]["room"]
     items_in_room = world.data["rooms"][room]["objects"]
 
+    if obj is None:
+        world.data["output"] = "What should I examine?"
+        return
+
     if obj in inv and inv[obj]:
         world.data["output"] = world.data["objects"][obj]["description"]
     elif obj in items_in_room and items_in_room[obj]:
@@ -65,6 +69,10 @@ def take(obj):
     room = world.data["current_state"]["room"]
     items_in_room = world.data["rooms"][room]["objects"]
     inv = world.data["current_state"]["inventory"]
+
+    if obj is None:
+        world.data["output"] = "What should I take?"
+        return
 
     if obj in items_in_room and items_in_room[obj]:
         if obj == "sigil":
@@ -95,6 +103,10 @@ def drop(obj):
     items_in_room = world.data["rooms"][room]["objects"]
     inv = world.data["current_state"]["inventory"]
 
+    if obj is None:
+        world.data["output"] = "What should I drop?"
+        return
+
     if obj in inv and inv[obj]:
         inv[obj] = False
         items_in_room[obj] = True
@@ -114,6 +126,10 @@ def kill(entity):
     current_room = world.data["current_state"]["room"]
     inventory = world.data["current_state"]["inventory"]
     room = world.data["rooms"][current_room]
+
+    if entity is None:
+        world.data["output"] = "Who should I kill?"
+        return
 
     if entity == "witch":
         if entity in room["objects"]:
@@ -147,7 +163,8 @@ def help():
     output += "drop [object] || "
     output += "examine [object] || "
     output += "look || "
-    output += "talk [entity] || "
+    output += "talk [creature] || "
+    output += "kill [creature] || "
     output += "quit"
 
     world.data["output"] = output
@@ -157,6 +174,10 @@ def go(direction):
     room = world.data["current_state"]["room"]
     items_in_room = world.data["rooms"][room]["objects"]
     directions = world.data["rooms"][room]["exits"]
+
+    if direction is None:
+        world.data["output"] = "'go' where?"
+        return
 
     if direction in directions:
         if room == "bridge" and direction == "north":
@@ -174,7 +195,7 @@ def go(direction):
             look()
             quit()
     else:
-        world.data["output"] = "You cannot go there!"
+        world.data["output"] = "You cannot go there!   Use 'exits' to view exits."
 
 
 def start():
@@ -186,6 +207,10 @@ def quit():
 
 
 def talk(obj):
+    if obj is None:
+        world.data["output"] = "Who should I talk to?"
+        return
+    
     if obj == "witch" or obj == "slime" or obj == "ghost":
         examine(obj)
     else:
@@ -194,26 +219,36 @@ def talk(obj):
 
 def do(act, something=None):
     actions = {
-        "go": go,
         "inventory": inventory,
         "exits": exits,
-        "take": take,
-        "drop": drop,
-        "examine": examine,
         "quit": quit,
         "start": start,
         "look": look,
-        "talk": talk,
         "help": help,
+    }
+
+    actions_one_noun = {
+        "talk": talk,
         "kill": kill,
+        "examine": examine,
+        "go": go,
+        "take": take,
+        "drop": drop,
     }
     if act in actions:
-        if something is None:
-            return actions[act]()
+        return actions[act]()
+    elif act in actions_one_noun:
+        if not (something is None):
+            return actions_one_noun[act](something)
+        elif act == "go":
+            world.data["output"] = "You must specify a direction to go to."
+        elif act == "talk":
+            world.data["output"] = "You must specify a creature to talk to."
         else:
-            return actions[act](something)
+            world.data["output"] = f"You must specify an object to %s." % act
     else:
-        world.data["output"] = "I cannot do that."
+        world.data["output"] = f"I don't know how to %s." % act
+        #world.data["output"] = "I cannot do that."
 
 
 def user_input(prompt):
